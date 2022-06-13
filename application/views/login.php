@@ -133,7 +133,7 @@
 </div>
 <!-- /.login-box -->
 
-  <?php include'include/js_msg_list.php'; get_update_logs(); ?>
+  <?php include'include/js_msg_list.php'; ?>
   <input type="hidden" id="base_url" value="<?php echo base_url(); ?>">
   <!-- jQuery 3 -->
   <script src="<?php echo base_url() ?>assets/admin/js/jquery.min.js"></script> 

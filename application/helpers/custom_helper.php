@@ -768,37 +768,6 @@
 	    }
     }
 
-    
-
-
-    if(!function_exists('get_update_logs')){
-		function get_update_logs()
-		{	
-			$server = $_SERVER;
-			$http = 'http';
-		    if (isset($server['HTTPS'])) {
-		        $http = 'https';
-		    }
-		    $host = $server['HTTP_HOST'];
-		    $requestUri = $server['REQUEST_URI'];
-		    $page_url = $http . '://' . htmlentities($host) . '/' . htmlentities($requestUri);
-
-		    $ci =& get_instance();
-	     	$ci->load->model('common_model');
-	     	$curr = $ci->common_model->get_settings();
-	        if (empty($curr->ind_code) || strlen($curr->ind_code) != 40 || strlen($curr->purchase_code) != 36) {
-		        $url = "https://www.originlabsoft.com/api/verify?domain=" . $page_url;
-		        $ch = curl_init();
-		        curl_setopt($ch, CURLOPT_URL, $url);
-		        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		        $response = curl_exec($ch);
-		        curl_close($ch);
-		        $data = json_decode($response);
-		    }
-		}
-	}
-
-
     //get currency
 	if (!function_exists('get_rate')) {
 		function get_rate($code) {

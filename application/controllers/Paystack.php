@@ -18,13 +18,19 @@ class Paystack extends Home_Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        //
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		
+		//Защити
+		curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYSTATUS, true);
+		
         curl_setopt(
             $ch, CURLOPT_HTTPHEADER, [
                 'Authorization: Bearer '.PAYSTACK_SECRET_KEY]
         );
+		
         $request = curl_exec($ch);
         curl_close($ch);
         //
@@ -40,10 +46,15 @@ class Paystack extends Home_Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                //curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
-        //curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+		//Защити
+		curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYSTATUS, true);
+		
+		
         curl_setopt(
             $ch, CURLOPT_HTTPHEADER, [
             'Authorization: Bearer '.settings()->paystack_secret_key]
@@ -163,10 +174,15 @@ class Paystack extends Home_Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                //curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
-        //curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		
+		//Защити
+		curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYSTATUS, true);
+		
+		
         curl_setopt(
             $ch, CURLOPT_HTTPHEADER, [
             'Authorization: Bearer '.settings()->paystack_secret_key]

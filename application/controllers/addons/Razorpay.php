@@ -41,11 +41,18 @@ class Razorpay extends Home_Controller
         //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_USERPWD, $key_id.':'.$key_secret);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+
+		//Защити
+		curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYSTATUS, true);
+		
         curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__).'/ca-bundle.crt');
         return $ch;
     }   
@@ -177,11 +184,23 @@ class Razorpay extends Home_Controller
         //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_USERPWD, $key_id.':'.$key_secret);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($ch, CURLOPT_POST, 1);
+		
+	 
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+       
+		
+		//Защити
+		curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+		curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2); 
+		curl_setopt($ch, CURLOPT_SSL_VERIFYSTATUS, true);
+
+		
+		
         curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__).'/ca-bundle.crt');
         return $ch;
     }   

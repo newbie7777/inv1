@@ -33,7 +33,7 @@
 
                             <div class="col-md-2 col-xs-12 mt-5 pl-0">
                                 <div class="input-group">
-                                    <input type="text" class="inv-dpick form-control datepicker" placeholder="<?php echo trans('from') ?>" name="start_date" value="<?php if(isset($_GET['start_date'])){echo $_GET['start_date'];} ?>" autocomplete="off">
+                                    <input type="text" class="inv-dpick form-control datepicker" placeholder="<?php echo trans('from') ?>" name="start_date" value="<?php if(isset($_GET['start_date'])){echo filter_input($_GET['start_date'], 'input', FILTER_SANITIZE_SPECIAL_CHARS); } ?>" autocomplete="off">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
