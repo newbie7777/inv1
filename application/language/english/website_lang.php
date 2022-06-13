@@ -6,7 +6,7 @@ $urlStr = '';
 
 $parsed = parse_url($url);
 if (empty($parsed['scheme'])) {
-    $urlStr = 'http://' . ltrim($url, '/');
+    $urlStr = 'https://' . ltrim($url, '/');
 }
 if (strpos($urlStr,'http') !== false) {
     $link_array = explode('/',$url);

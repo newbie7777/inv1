@@ -1225,8 +1225,8 @@ class Admin_model extends CI_Model {
             $this->db->where('recurring', 1);
         }
         if (!empty($_GET['start_date']) || !empty($_GET['end_date'])) {
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", $_GET['start_date']);
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", $_GET['end_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", (int)$_GET['start_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", (int)$_GET['end_date']);
         }
         $this->db->where('type', $type);
         $this->db->order_by('id', 'DESC');
@@ -1253,8 +1253,8 @@ class Admin_model extends CI_Model {
             $this->db->where('customer', $_GET['customer']);
         }
         if (!empty($_GET['start_date']) || !empty($_GET['end_date'])) {
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", $_GET['start_date']);
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", $_GET['end_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", (int)$_GET['start_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", (int)$_GET['end_date']);
         }
         $this->db->where('type', $type);
         $this->db->order_by('id', 'DESC');
@@ -1291,8 +1291,8 @@ class Admin_model extends CI_Model {
             $this->db->where('recurring', 1);
         }
         if (!empty($_GET['start_date']) || !empty($_GET['end_date'])) {
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", $_GET['start_date']);
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", $_GET['end_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", (int)$_GET['start_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", (int)$_GET['end_date']);
         }
         $this->db->where('type', $type);
         $this->db->order_by('id', 'DESC');
@@ -1328,8 +1328,8 @@ class Admin_model extends CI_Model {
         }
         
         if (!empty($_GET['start_date']) || !empty($_GET['end_date'])) {
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", $_GET['start_date']);
-            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", $_GET['end_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') > ", (int)$_GET['start_date']);
+            $this->db->where("DATE_FORMAT(created_at,'%Y-%m-%d') < ", (int)$_GET['end_date']);
         }
         $this->db->where('type', $type);
         $this->db->order_by('id', 'DESC');
@@ -1615,8 +1615,8 @@ class Admin_model extends CI_Model {
         }
       
         if (!empty($_GET['start_date']) || !empty($_GET['end_date'])) {
-            $this->db->where("i.date >", $_GET['start_date']);
-            $this->db->where("i.date <", $_GET['end_date']);
+            $this->db->where("i.date >", (int)$_GET['start_date']);
+            $this->db->where("i.date <", (int)$_GET['end_date']);
         }
 
         if (isset($_GET['tax_info']) && $_GET['tax_info'] != 0) {
@@ -1902,8 +1902,8 @@ class Admin_model extends CI_Model {
         }
       
         if (!empty($_GET['start_date']) || !empty($_GET['end_date'])) {
-            $this->db->where("date > ", $_GET['start_date']);
-            $this->db->where("date < ", $_GET['end_date']);
+            $this->db->where("date > ", (int)$_GET['start_date']);
+            $this->db->where("date < ", (int)$_GET['end_date']);
         }
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get();
